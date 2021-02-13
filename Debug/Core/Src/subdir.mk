@@ -4,21 +4,18 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/it.c \
 ../Core/Src/main.c \
 ../Core/Src/msp.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/system_stm32f4xx.c 
 
 OBJS += \
-./Core/Src/it.o \
 ./Core/Src/main.o \
 ./Core/Src/msp.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/system_stm32f4xx.o 
 
 C_DEPS += \
-./Core/Src/it.d \
 ./Core/Src/main.d \
 ./Core/Src/msp.d \
 ./Core/Src/syscalls.d \
@@ -30,7 +27,7 @@ Core/Src/%.o: ../Core/Src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo $(PWD)
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F411xE -I"C:/Users/juanp/Documents/STM32F411RE_Projects/timer_5/Core/Inc" -I"C:/Users/juanp/Documents/STM32F411RE_Projects/timer_5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/juanp/Documents/STM32F411RE_Projects/timer_5/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/juanp/Documents/STM32F411RE_Projects/timer_5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/juanp/Documents/STM32F411RE_Projects/timer_5/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F411xE -I"C:/Users/juanp/workspace/basic-led/Core/Inc" -I"C:/Users/juanp/workspace/basic-led/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/juanp/workspace/basic-led/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/juanp/workspace/basic-led/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/juanp/workspace/basic-led/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

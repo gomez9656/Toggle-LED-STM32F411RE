@@ -26,16 +26,20 @@ int main(){
 	HAL_Init();
 	SystemCoreClockConfig();
 	GPIO_Init();
-	TIMER5_Init();
+	//TIMER5_Init();
 
-	HAL_TIM_Base_Start(&htimer5);
-
+	//HAL_TIM_Base_Start(&htimer5);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 	while(1){
 
-		while( ! (TIM5->SR & TIM_SR_UIF));
+		//while( ! (TIM5->SR & TIM_SR_UIF));
 
-		TIM5->SR = 0;
-		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_9);
+		//TIM5->SR = 0;
+		for (int i = 0; i < 100000; i++){
+		}
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 	}
 
 	return 0;
@@ -65,7 +69,7 @@ void GPIO_Init(void){
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef ledgpio;
-	ledgpio.Pin = GPIO_PIN_9;
+	ledgpio.Pin = GPIO_PIN_5;
 	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
 	ledgpio.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOA, &ledgpio);
